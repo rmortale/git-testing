@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: k8scc-web-client-devt
+  name: git-testing-devt
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   labels:
-    name: k8scc-web-client-app
+    name: git-testing-devt
 spec:
   project: default
   destination:
@@ -20,9 +20,9 @@ spec:
         valueFiles:
           - $values/k8s/helm-values/k3d-devt-values.yaml
 
-    - repoURL: https://github.com/rmortale/k8scc-web-client.git
+    - repoURL: https://github.com/rmortale/git-testing.git
       ref: values
-      targetRevision: main
+      targetRevision: feature/add-service
   # syncPolicy:
   #   automated:
   #     prune: true
