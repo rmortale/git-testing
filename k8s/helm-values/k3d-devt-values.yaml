@@ -1,6 +1,6 @@
 image:
-  repository: ghcr.io/rmortale/k8scc-web-client
-  tag: 281a334
+  repository: ghcr.io/rmortale/git-testing
+  tag: sha-3eafee4
 
 containerPort: 8080
 
@@ -8,7 +8,7 @@ vars:
   K8SCC_ENV: DEVT
 
 ingress:
-  host: devt-k8scc.internal
+  host: devt.internal
 
 
 resources:
