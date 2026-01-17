@@ -1,2 +1,2 @@
 app:
-  greeting: ${env.K8SCC_ENV:default} Welcome to Git Testing Application!
+  greeting: Welcome to Git Testing Application in ${K8SCC_ENV:local}!

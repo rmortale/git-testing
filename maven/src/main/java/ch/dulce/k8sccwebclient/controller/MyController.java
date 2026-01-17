@@ -17,6 +17,6 @@ public class MyController {
 
   @GetMapping()
   public ResponseEntity<?> greet() {
-    return ResponseEntity.ok("Hello from " + greeting);
+    return ResponseEntity.ok(greeting);
   }
 }
