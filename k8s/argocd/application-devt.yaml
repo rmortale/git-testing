@@ -11,7 +11,7 @@ spec:
   project: default
   destination:
     name: in-cluster
-    namespace: k8scc
+    namespace: default
   sources:
     - chart: onechart
       repoURL: https://chart.onechart.dev
@@ -22,11 +22,11 @@ spec:
 
     - repoURL: https://github.com/rmortale/k8scc-web-client.git
       ref: values
-      targetRevision: devt
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-      - ApplyOutOfSyncOnly=true
+      targetRevision: main
+  # syncPolicy:
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
+  #   syncOptions:
+  #     - CreateNamespace=true
+  #     - ApplyOutOfSyncOnly=true
