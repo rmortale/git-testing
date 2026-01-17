@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: k8scc-web-client-acpt
+  name: git-testing-acpt
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   labels:
-    name: k8scc-web-client-app
+    name: git-testing-acpt
 spec:
   project: default
   destination:
@@ -20,7 +20,7 @@ spec:
         valueFiles:
           - $values/k8s/helm-values/k3d-acpt-values.yaml
 
-    - repoURL: https://github.com/rmortale/k8scc-web-client.git
+    - repoURL: https://github.com/rmortale/git-testing.git
       ref: values
       targetRevision: acpt
   # syncPolicy:
