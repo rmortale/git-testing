@@ -1,14 +1,14 @@
 image:
   repository: ghcr.io/rmortale/k8scc-web-client
-  tag: d9ee883
+  tag: 281a334
 
 containerPort: 8080
 
 vars:
-  K8SCC_ENV: TEST
+  K8SCC_ENV: PROD
 
 ingress:
-  host: test-k8scc.internal
+  host: prod-k8scc.internal
 
 
 resources:
