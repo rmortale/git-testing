@@ -31,7 +31,7 @@ jobs:
           tags: |
             type=ref,event=branch
             type=sha,prefix={{branch}}-
-            type=sha,prefix=
+            type=sha
 
       - name: Set up JDK
         uses: actions/setup-java@v4
@@ -64,9 +64,9 @@ jobs:
 
       - name: update tags in helm values files
         run: |
-          sed -i "s,tag:.*,tag:\ ${GITHUB_SHA::7}," k8s/helm-values/k3d-devt-values.yaml
-          sed -i "s,tag:.*,tag:\ ${GITHUB_SHA::7}," k8s/helm-values/k3d-acpt-values.yaml
-          sed -i "s,tag:.*,tag:\ ${GITHUB_SHA::7}," k8s/helm-values/k3d-prod-values.yaml
+          sed -i "s,tag:.*,tag:\ sha-${GITHUB_SHA::7}," k8s/helm-values/k3d-devt-values.yaml
+          sed -i "s,tag:.*,tag:\ sha-${GITHUB_SHA::7}," k8s/helm-values/k3d-acpt-values.yaml
+          sed -i "s,tag:.*,tag:\ sha-${GITHUB_SHA::7}," k8s/helm-values/k3d-prod-values.yaml
 
       - uses: EndBug/add-and-commit@v7
         with:
