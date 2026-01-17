@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/rmortale/git-testing
-  tag: 3a159a3
+  tag: 8874844
 
 containerPort: 8080
 
