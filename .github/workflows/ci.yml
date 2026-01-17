@@ -4,7 +4,10 @@ on:
   push:
     paths-ignore:
       - 'k8s/**'
-
+    branches:
+      - main
+      - feature/**
+      
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
