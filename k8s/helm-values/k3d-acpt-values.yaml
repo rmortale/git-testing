@@ -5,7 +5,7 @@ image:
 containerPort: 8080
 
 vars:
-  K8SCC_ENV: ACPTUPDATE
+  K8SCC_ENV: ACPTUPDATE2
 
 ingress:
   host: acpt.internal
