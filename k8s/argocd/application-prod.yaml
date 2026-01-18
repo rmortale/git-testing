@@ -22,7 +22,7 @@ spec:
 
     - repoURL: https://github.com/rmortale/git-testing.git
       ref: values
-      targetRevision: prod
+      targetRevision: v1.1.0
   # syncPolicy:
   #   automated:
   #     prune: true
