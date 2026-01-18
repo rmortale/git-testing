@@ -5,7 +5,7 @@ image:
 containerPort: 8080
 
 vars:
-  K8SCC_ENV: PRODUPDATE
+  K8SCC_ENV: PRODUPDATE2
 
 ingress:
   host: prod.internal
