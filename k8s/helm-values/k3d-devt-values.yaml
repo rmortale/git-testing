@@ -5,7 +5,7 @@ image:
 containerPort: 8080
 
 vars:
-  K8SCC_ENV: DEVTUPDATE
+  K8SCC_ENV: DEVTUPDATE2
 
 ingress:
   host: devt.internal
