@@ -1,11 +1,11 @@
 image:
   repository: ghcr.io/rmortale/git-testing
-  tag: sha-3eafee4
+  tag: sha-e2c2163
 
 containerPort: 8080
 
 vars:
-  K8SCC_ENV: PROD
+  K8SCC_ENV: PRODUPDATE
 
 ingress:
   host: prod.internal
