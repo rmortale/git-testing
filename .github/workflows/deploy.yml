@@ -27,7 +27,6 @@ jobs:
           KUBECONFIG: ${{ github.workspace }}/kubeconfig
         run: |
           echo "Deploy to development"
-          dtag=`yq .image.tag k8s/chart/git-testing/k3d-devt-values.yaml`
           helm upgrade --install git-testing-devt k8s/chart/git-testing \
             --values k8s/chart/git-testing/k3d-devt-values.yaml \
             --namespace default \
@@ -35,7 +34,6 @@ jobs:
 
           if [ "${{ inputs.proddeploy }}" == "true" ]; then
             echo "Deploy to production"
-            ptag=`yq .image.tag k8s/chart/git-testing/k3d-prod-values.yaml`
             helm upgrade --install git-testing-prod k8s/chart/git-testing \
               --values k8s/chart/git-testing/k3d-prod-values.yaml \
               --namespace default \
