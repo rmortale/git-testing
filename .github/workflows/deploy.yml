@@ -33,6 +33,6 @@ jobs:
             --values k8s/helm-values/k3d-devt-values.yaml \
             --namespace default
 
-          if [ ${{ inputs.proddeploy }} ]; then
+          if [ "${{ inputs.proddeploy }}" == "true" ]; then
             echo "Deploy to production"
           fi
