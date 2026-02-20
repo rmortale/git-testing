@@ -6,7 +6,7 @@ envVars:
 
 ingress:
   enabled: true
-  hhostnamet: devt.internal
+  hostname: devt.internal
 
 resources:
   limits:
