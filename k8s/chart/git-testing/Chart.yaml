@@ -5,7 +5,7 @@ description: A Helm chart for git-testing app
 type: application
 version: 0.1.0
 
-appVersion: "1.16.0"
+appVersion: sha-3d91d02
 
 dependencies:
   - name: helmet
