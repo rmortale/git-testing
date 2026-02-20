@@ -9,9 +9,6 @@ on:
         type: boolean
         default: false
 
-env:
-  REGISTRY: ghcr.io
-
 jobs:
   helm-deploy:
     runs-on: ubuntu-latest
@@ -30,7 +27,7 @@ jobs:
           KUBECONFIG: ${{ github.workspace }}/kubeconfig
         run: |
           echo ${{ inputs.proddeploy }}
-          helm upgrade --install ${{ github.repository }}-devt \
+          helm upgrade --install git-testing-devt \
             https://chart.onechart.dev/onechart-0.73.0.tgz \
             --values k8s/helm-values/k3d-devt-values.yaml \
             --namespace default
