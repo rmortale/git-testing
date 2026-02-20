@@ -1,5 +1,5 @@
 image:
-  tag: sha-3d91d02
+  tag: sha-f038b7a
 
 envVars:
   K8SCC_ENV: PRODUPDATE2
