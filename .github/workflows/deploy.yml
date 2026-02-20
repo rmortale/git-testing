@@ -27,12 +27,15 @@ jobs:
           KUBECONFIG: ${{ github.workspace }}/kubeconfig
         run: |
           echo "Deploy to development"
+          dtag=`yq .image.tag k8s/helm-values/k3d-devt-values.yaml`
+
           helm upgrade --install git-testing-devt onechart \
             --repo https://chart.onechart.dev \
             --version 0.73.0 \
             --values k8s/helm-values/k3d-devt-values.yaml \
             --namespace default \
-            --hide-notes
+            --hide-notes \
+            --description "Upgrade completed to tag: $dtag"
 
           if [ "${{ inputs.proddeploy }}" == "true" ]; then
             echo "Deploy to production"
