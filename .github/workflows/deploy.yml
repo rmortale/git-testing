@@ -27,7 +27,12 @@ jobs:
           KUBECONFIG: ${{ github.workspace }}/kubeconfig
         run: |
           echo ${{ inputs.proddeploy }}
-          helm upgrade --install git-testing-devt \
-            https://chart.onechart.dev/onechart-0.73.0.tgz \
+          helm upgrade --install git-testing-devt onechart \
+            --repo https://chart.onechart.dev \
+            --version 0.73.0 \
             --values k8s/helm-values/k3d-devt-values.yaml \
             --namespace default
+
+          if [ ${{ inputs.proddeploy }} ]; then
+            echo "Deploy to production"
+          fi
