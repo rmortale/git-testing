@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       proddeploy:
-        description: "Deploy till production"
+        description: "Deploy till production?"
         required: false
         type: boolean
         default: false
@@ -27,23 +27,17 @@ jobs:
           KUBECONFIG: ${{ github.workspace }}/kubeconfig
         run: |
           echo "Deploy to development"
-          dtag=`yq .image.tag k8s/helm-values/k3d-devt-values.yaml`
-          helm upgrade --install git-testing-devt onechart \
-            --repo https://chart.onechart.dev \
-            --version 0.73.0 \
-            --values k8s/helm-values/k3d-devt-values.yaml \
+          dtag=`yq .image.tag k8s/chart/git-testing/k3d-devt-values.yaml`
+          helm upgrade --install git-testing-devt k8s/chart/git-testing \
+            --values k8s/chart/git-testing/k3d-devt-values.yaml \
             --namespace default \
-            --hide-notes \
-            --description "Upgrade completed to tag: $dtag"
+            --hide-notes
 
           if [ "${{ inputs.proddeploy }}" == "true" ]; then
             echo "Deploy to production"
-            ptag=`yq .image.tag k8s/helm-values/k3d-prod-values.yaml`
-            helm upgrade --install git-testing-prod onechart \
-              --repo https://chart.onechart.dev \
-              --version 0.73.0 \
-              --values k8s/helm-values/k3d-prod-values.yaml \
+            ptag=`yq .image.tag k8s/chart/git-testing/k3d-prod-values.yaml`
+            helm upgrade --install git-testing-prod k8s/chart/git-testing \
+              --values k8s/chart/git-testing/k3d-prod-values.yaml \
               --namespace default \
-              --hide-notes \
-              --description "Upgrade completed to tag: $ptag"
+              --hide-notes
           fi

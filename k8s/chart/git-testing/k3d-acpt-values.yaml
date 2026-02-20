@@ -1,15 +1,12 @@
 image:
-  repository: ghcr.io/rmortale/git-testing
   tag: sha-36caf80
 
-containerPort: 8080
-
-vars:
-  K8SCC_ENV: DEVTUPDATE2
+envVars:
+  K8SCC_ENV: ACPTUPDATE2
 
 ingress:
-  host: devt.internal
-
+  enabled: true
+  hostname: acpt.internal
 
 resources:
   limits:
@@ -18,6 +15,3 @@ resources:
   requests:
     cpu: "200m"
     memory: "500Mi"
-
-      
-
